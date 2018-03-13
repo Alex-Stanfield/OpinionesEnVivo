@@ -1,0 +1,128 @@
+<html>
+<body>
+ 
+<table>
+    <tr><td>Text to Save:</td></tr>
+    <tr>
+        <td colspan="3">
+            <textarea id="inputTextToSave" cols="80" rows="25"></textarea>
+        </td>
+    </tr>
+    <tr>
+        <td>Filename to Save As:</td>
+        <td><input id="inputFileNameToSaveAs"></input></td>
+        <td><button onclick="saveTextAsFile()">Save Text to File</button></td>
+    </tr>
+    <tr>
+        <td>Select a File to Load:</td>
+        <td><input type="file" id="fileToLoad"></td>
+        <td><button onclick="loadFileAsText()">Load Selected File</button><td>
+    </tr>
+    <tr></tr>
+    <tr>
+        <td><button onclick="test_isgd()">Test shortURL + imagen</button></td>
+    </tr>
+    <tr>
+        <td><p id='shorty'></p></td>
+    </tr>
+    <tr>
+        <td><img id='qrcode'></img></td>
+
+<!-
+Const sRootURL As String = "https://chart.googleapis.com/chart?"
+Const sSizeParameter As String = "chs="
+Const sTypeChart As String = "cht=qr"
+Const sDataParameter As String = "chl="
+Const sECCParameter As String = "chld="  'Q|0"  'q=25% ECC | 0=border in rows
+Const sJoinCHR As String = "&"
+->        
+    </tr>
+</table>
+ 
+<script>
+ 
+function saveTextAsFile()
+{
+    var textToSave = document.getElementById("inputTextToSave").value;
+    var textToSaveAsBlob = new Blob([textToSave], {type:"text/plain"});
+    var textToSaveAsURL = window.URL.createObjectURL(textToSaveAsBlob);
+    var fileNameToSaveAs = document.getElementById("inputFileNameToSaveAs").value;
+ 
+    var downloadLink = document.createElement("a");
+    downloadLink.download = fileNameToSaveAs;
+    downloadLink.innerHTML = "Download File";
+    downloadLink.href = textToSaveAsURL;
+    downloadLink.onclick = destroyClickedElement;
+    downloadLink.style.display = "none";
+    document.body.appendChild(downloadLink);
+ 
+    downloadLink.click();
+}
+ 
+function destroyClickedElement(event)
+{
+    document.body.removeChild(event.target);
+}
+ 
+function loadFileAsText()
+{
+    var fileToLoad = document.getElementById("fileToLoad").files[0];
+ 
+    var fileReader = new FileReader();
+    fileReader.onload = function(fileLoadedEvent) 
+    {
+        var textFromFileLoaded = fileLoadedEvent.target.result;
+        document.getElementById("inputTextToSave").value = textFromFileLoaded;
+    };
+    fileReader.readAsText(fileToLoad, "UTF-8");
+}
+ 
+
+function test_isgd(url){
+    if (url == undefined) {url = 'http://example.com';}
+    var data_file = "https://is.gd/create.php?format=json&opt=0&url="+ url;
+    
+    var http_request = new XMLHttpRequest();
+
+    http_request.onreadystatechange = function(){
+	    if (http_request.readyState == 4 ) {
+		    var jsonObj = JSON.parse(http_request.responseText); 
+    		sethtml("shorty", jsonObj.shorturl);  //jsonObj.errormessage);
+
+// agregar la generacion de QRcode
+            document.getElementById('qrcode').src = 'https://chart.googleapis.com/chart?chs=400x400&cht=qr&chld=Q|0&chl=' + encodeURIComponent(jsonObj.shorturl);
+
+	    }
+    }
+    http_request.open("GET", data_file, true);
+    http_request.send();
+}
+
+</script>
+ 
+</body>
+
+<!-
+function download(filename, text) {
+    var element = document.createElement('a');
+    element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
+    element.setAttribute('download', filename);
+  
+    element.style.display = 'none';
+    document.body.appendChild(element);
+  
+    element.click();
+  
+    document.body.removeChild(element);
+  }
+  
+->
+<script>
+
+function sethtml(id,val){document.getElementById(id).innerHTML  = val;}
+
+</script>
+
+
+
+</html>

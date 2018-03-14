@@ -1,4 +1,7 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<meta http-equiv="last-modified" content="Sun, 10 Feb 2013 14:00:46 GMT " />
+<meta http-equiv="cache-control" content="Private" />
+<meta http-equiv="Expires" content="60" />
 
 <html>
 	<head>
@@ -31,16 +34,16 @@
 				metadata.push({ name: "Num", datatype: "string(2)", editable: false});
 				metadata.push({ name: "Pregunta", datatype: "string(50)", editable: true});
 				var data = [];
-				data.push({id: 1, values: {"num":" 1","Pregunta":"sample"}});
-				data.push({id: 2, values: {"num":" 2","Pregunta":""}});
-				data.push({id: 3, values: {"num":" 3","Pregunta":""}});
-				data.push({id: 4, values: {"num":" 4","Pregunta":""}});
-				data.push({id: 5, values: {"num":" 5","Pregunta":""}});
-				data.push({id: 6, values: {"num":" 6","Pregunta":""}});
-				data.push({id: 7, values: {"num":" 7","Pregunta":""}});
-				data.push({id: 8, values: {"num":" 8","Pregunta":""}});
-				data.push({id: 9, values: {"num":" 9","Pregunta":"s"}});
-				data.push({id: 10, values: {"num":"10","Pregunta":""}});
+				data.push({id: 1, values: {"Num":" 1","Pregunta":"sample"}});
+				data.push({id: 2, values: {"Num":" 2","Pregunta":""}});
+				data.push({id: 3, values: {"Num":" 3","Pregunta":""}});
+				data.push({id: 4, values: {"Num":" 4","Pregunta":""}});
+				data.push({id: 5, values: {"Num":" 5","Pregunta":""}});
+				data.push({id: 6, values: {"Num":" 6","Pregunta":""}});
+				data.push({id: 7, values: {"Num":" 7","Pregunta":""}});
+				data.push({id: 8, values: {"Num":" 8","Pregunta":""}});
+				data.push({id: 9, values: {"Num":" 9","Pregunta":""}});
+				data.push({id: 10, values: {"Num":"10","Pregunta":""}});
 		         
 				editableGrid = new EditableGrid("DemoGridJsData",{"enableSort":false});
 				editableGrid.load({"metadata": metadata, "data": data});

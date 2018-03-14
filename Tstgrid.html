@@ -42,9 +42,9 @@
 				data.push({id: 9, values: {"num":" 9","Pregunta":"s"}});
 				data.push({id: 10, values: {"num":"10","Pregunta":""}});
 		         
-				editableGrid = new EditableGrid("DemoGridJsData");
+				editableGrid = new EditableGrid("DemoGridJsData",{"enableSort":false});
 				editableGrid.load({"metadata": metadata, "data": data});
-				editablegrid.enableSort(false);
+				//editablegrid.enableSort(false);
 				editableGrid.renderGrid("tablecontent", "testgrid");
 			} 
 		</script>

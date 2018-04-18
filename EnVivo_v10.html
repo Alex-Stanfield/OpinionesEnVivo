@@ -1,0 +1,160 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html manifest="manifest.appcache">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <title>Opiniones en Vivo</title>
+  <link rel="stylesheet" type="text/css" href="EnVivo_v10.css">
+  
+  <script src="editablegrid.js"></script>
+  <!-- [DO NOT DEPLOY] --> <script src="editablegrid_renderers.js" ></script>
+  <!-- [DO NOT DEPLOY] --> <script src="editablegrid_editors.js" ></script>
+  <!-- [DO NOT DEPLOY] --> <script src="editablegrid_validators.js" ></script>
+  <!-- [DO NOT DEPLOY] --> <script src="editablegrid_utils.js" ></script>
+  <!-- [DO NOT DEPLOY] --> <script src="editablegrid_charts.js" ></script>
+  <link rel="stylesheet" href="editablegrid.css" type="text/css" media="screen">
+  
+  <style>
+    body { font-family:'lucida grande', tahoma, verdana, arial, sans-serif; font-size:11px; }
+    h1 { font-size: 15px; }
+    a { color: #548dc4; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    table.testgrid { border-collapse: collapse; border: 1px solid #CCB; width: 800px; }
+    table.testgrid td, table.testgrid th { padding: 5px; border: 1px solid #E0E0E0; }
+    table.testgrid th { background: #E5E5E5; text-align: left; }
+    input.invalid { background: red; color: #FDFDFD; }
+  </style>
+  
+  <script>
+    window.onload = function() {
+      // this approach is interesting if you need to dynamically create data in Javascript 
+      var metadata = [];
+      metadata.push({ name: "Num", datatype: "string(2)", editable: false});
+      metadata.push({ name: "Pregunta", datatype: "string(50)", editable: true});
+      metadata.push({ name: "testeo", datatype: "string(5)", editable: false});
+      var data = [];
+      data.push({id: 1, values: {"Num":" 1","Pregunta":"sample"}});
+      data.push({id: 2, values: {"Num":" 2","Pregunta":""}});
+      data.push({id: 3, values: {"Num":" 3","Pregunta":""}});
+      data.push({id: 4, values: {"Num":" 4","Pregunta":""}});
+      data.push({id: 5, values: {"Num":" 5","Pregunta":""}});
+      data.push({id: 6, values: {"Num":" 6","Pregunta":""}});
+      data.push({id: 7, values: {"Num":" 7","Pregunta":""}});
+      data.push({id: 8, values: {"Num":" 8","Pregunta":""}});
+      data.push({id: 9, values: {"Num":" 9","Pregunta":""}});
+      data.push({id: 10, values: {"Num":"10","Pregunta":""}});
+            
+      editableGrid = new EditableGrid("DemoGridJsData",{"enableSort":false});
+      editableGrid.load({"metadata": metadata, "data": data});
+      //editablegrid.enableSort(false);
+      editableGrid.renderGrid("tablecontent", "testgrid");
+    } 
+  </script>
+</head>
+
+<header>
+    
+  <div style="margin: 0 8 0 0; width:100%;background-color:#302f85;min-height:calc(35x + 0.0023 * (100vw - 400px));position:relative;color:white"> 
+  <h1><strong>Opiniones en vivo</strong></h1>
+  
+</header>
+    
+<main style="margin:8px auto;">  
+  <!-- Status general ------------------------------------------------------------>
+  <div>
+    <p>Libres:  </p>
+    <br>
+  </div>
+  <!-- Navegación ---------------------------------------------------------------->
+  <input id="tab0" type="radio" name="tabs" checked>
+  <label for="tab0">Sesión</label>
+    
+  <input id="tab1" type="radio" name="tabs" >
+  <label for="tab1">Demográficos</label>
+    
+  <input id="tab2" type="radio" name="tabs">
+  <label for="tab2">Likerts</label>
+    
+  <input id="tab3" type="radio" name="tabs">
+  <label for="tab3">MChoice</label>
+    
+  <input id="tab4" type="radio" name="tabs">
+  <label for="tab4">X vs Y</label>
+    
+  <input id="tab5" type="radio" name="tabs">
+  <label for="tab5">Comentarios</label>
+
+
+  
+  <input id="tab9" type="radio" name="tabs">
+  <label for="tab9"></label> 
+
+  
+  <!-- Contenidos ---------------------------------------------------------------->
+  <section id="content0"> <!-- Sesión -------------------------------------------->
+    <h2>Datos de la sesión</h2>
+    <br>
+    <p>
+      Aca van los campos de la sesión a utilizar y los botons para lanzar la primer a y segunda medición.
+    </p>
+  </section>
+
+  <section id="content1"> <!-- Demográficos -------------------------------------->
+    <div id="tablecontent"></div>
+    <p>
+      Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket meatloaf short ribs.
+    </p>
+    <p>
+      Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin meatloaf swine ground round venison.
+    </p>
+  </section>
+    
+  <section id="content2"> <!-- Likerts  ------------------------------------------>
+    <p>
+      Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback spare ribs salami beef ribs.
+    </p>
+    <p>
+      Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
+    </p>
+  </section>
+    
+  <section id="content3"> <!-- MChoice  ------------------------------------------>
+    <p>
+      Bacon ipsum dolor sit amet beef venison beef ribs kielbasa. Sausage pig leberkas, t-bone sirloin shoulder bresaola. Frankfurter rump porchetta ham. Pork belly prosciutto brisket meatloaf short ribs.
+    </p>
+    <p>
+      Brisket meatball turkey short loin boudin leberkas meatloaf chuck andouille pork loin pastrami spare ribs pancetta rump. Frankfurter corned beef beef tenderloin short loin meatloaf swine ground round venison.
+    </p>
+  </section>
+    
+  <section id="content4"> <!-- X vs Y -------------------------------------------->
+    <p>
+      Bacon ipsum dolor sit amet landjaeger sausage brisket, jerky drumstick fatback boudin ball tip turducken. Pork belly meatball t-bone bresaola tail filet mignon kevin turkey ribeye shank flank doner cow kielbasa shankle. Pig swine chicken hamburger, tenderloin turkey rump ball tip sirloin frankfurter meatloaf boudin brisket ham hock. Hamburger venison brisket tri-tip andouille pork belly ball tip short ribs biltong meatball chuck. Pork chop ribeye tail short ribs, beef hamburger meatball kielbasa rump corned beef porchetta landjaeger flank. Doner rump frankfurter meatball meatloaf, cow kevin pork pork loin venison fatback spare ribs salami beef ribs.
+    </p>
+    <p>
+      Jerky jowl pork chop tongue, kielbasa shank venison. Capicola shank pig ribeye leberkas filet mignon brisket beef kevin tenderloin porchetta. Capicola fatback venison shank kielbasa, drumstick ribeye landjaeger beef kevin tail meatball pastrami prosciutto pancetta. Tail kevin spare ribs ground round ham ham hock brisket shoulder. Corned beef tri-tip leberkas flank sausage ham hock filet mignon beef ribs pancetta turkey.
+    </p>
+  </section>
+
+  <section id="content5"> <!-- Comentarios  -------------------------------------->
+    <p>
+      Aca los open text.
+    </p>
+  </section>
+
+  <section id="content9"> <!-- HELP ---------------------------------------------->
+    <h2>Instrucciones de uso</h2>
+    <p>
+      Aca la ayuda.
+    </p>
+  </section>
+  
+</main>
+  
+<footer> <!-- footer identico a la pagina de la encuesta -------------------------->
+  <div style="margin:0px 0 0 0;width:100%;background-color:#302f85;min-height:calc(35x + 0.0023 * (100vw - 400px));position:relative">
+    <img style="height:Calc(20px + 0.0099 * ( 100vw - 400px ));top:50%;position:absolute;right:5px;-ms-transform:translate(0,-50%);transform:translate(0,-50%)" src="http://www.asertys.net/sites/default/files/piedepagina%20-%20logo%20(desktop).png"/>
+    <p style="padding:5px 85px 5px 5px;font-family:Arial Narrow;color:white;font-size:Calc(8pt + 0.0023 * ( 100vw - 400px ));-webkit-margin-after: 0;">Opiniones en vivo ©<small><br>Todos los derechos reservados</small></p>
+  </div>
+</footer>
+</html>
